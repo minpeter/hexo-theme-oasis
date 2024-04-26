@@ -2,6 +2,17 @@ extends _includes/layout.pug
 
 block content
   article#post
+
+    div(class="post-canonical")
+    if page.canonical_url
+      span View post on new blog 
+      a(href=page.canonical_url, target="_blank")= page.canonical_url
+    else
+      span View posts on new blog 
+      a(href="https://minpeter.xyz/blog", target="_blank")= "https://minpeter.xyz/blog"
+      
+    hr
+    
     if page.photos && page.photos.length
       div(class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery")
         for photo in page.photos
